@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Nutrition } from '../types';
 
-const API_BASE_URL = '';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
 
 export const getNutrition = async (): Promise<Nutrition[]> => {
   const response = await axios.get(`${API_BASE_URL}/nutrition`);
