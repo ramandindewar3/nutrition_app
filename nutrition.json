@@ -5,6 +5,12 @@
       "foodName": "Boiled Egg",
       "calories": 78,
       "protein": 6
+    },
+    {
+      "foodName": "chicken",
+      "calories": 10,
+      "protein": 10,
+      "id": "anivPdtHWGY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

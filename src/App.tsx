@@ -44,6 +44,10 @@ function App() {
     return nutritionList.reduce((sum, item) => sum + item.calories, 0);
   }, [nutritionList]);
 
+  const totalProtein = useMemo(() => {
+    return nutritionList.reduce((sum, item) => sum + item.protein, 0);
+  }, [nutritionList]);
+
   return (
     <Container maxWidth="md">
       <Typography variant="h4" component="h1" gutterBottom>
@@ -54,6 +58,9 @@ function App() {
       <Box mt={2}>
         <Typography variant="h6">
           Total Calories: {totalCalories}
+        </Typography>
+        <Typography variant="h6">
+          Total Protein: {totalProtein}g
         </Typography>
       </Box>
     </Container>
