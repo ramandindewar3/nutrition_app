@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 import type { Nutrition } from '../types';
 
@@ -6,12 +6,12 @@ interface AddNutritionProps {
   onAdd: (nutrition: Omit<Nutrition, 'id'>) => void;
 }
 
-const AddNutrition: React.FC<AddNutritionProps> = ({ onAdd }) => {
+const AddNutrition = ({ onAdd }: AddNutritionProps) => {
   const [foodName, setFoodName] = useState('');
   const [calories, setCalories] = useState('');
   const [protein, setProtein] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (foodName && calories && protein) {
       onAdd({

@@ -1,5 +1,3 @@
-import React from 'react';
-import { List } from '@mui/material';
 import NutritionItem from './NutritionItem';
 import type { Nutrition } from '../types';
 
@@ -8,13 +6,13 @@ interface NutritionListProps {
   onDelete: (id: string) => void;
 }
 
-const NutritionList: React.FC<NutritionListProps> = ({ nutritionList, onDelete }) => {
+const NutritionList = ({ nutritionList, onDelete }: NutritionListProps) => {
   return (
-    <List>
+    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
       {nutritionList.map((item) => (
-        <NutritionItem key={item.id} nutrition={item} onDelete={onDelete} />
+        <NutritionItem key={String(item.id)} nutrition={item} onDelete={onDelete} />
       ))}
-    </List>
+    </ul>
   );
 };
 

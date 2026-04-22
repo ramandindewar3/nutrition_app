@@ -1,6 +1,3 @@
-import React from 'react';
-import { ListItem, ListItemText, IconButton } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
 import type { Nutrition } from '../types';
 
 interface NutritionItemProps {
@@ -8,20 +5,14 @@ interface NutritionItemProps {
   onDelete: (id: string) => void;
 }
 
-const NutritionItem: React.FC<NutritionItemProps> = ({ nutrition, onDelete }) => {
+const NutritionItem = ({ nutrition, onDelete }: NutritionItemProps) => {
   return (
-    <ListItem
-      secondaryAction={
-        <IconButton edge="end" onClick={() => onDelete(nutrition.id!)}>
-          <DeleteIcon />
-        </IconButton>
-      }
-    >
-      <ListItemText
-        primary={nutrition.foodName}
-        secondary={`Calories: ${nutrition.calories}, Protein: ${nutrition.protein}g`}
-      />
-    </ListItem>
+    <li style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid rgba(0,0,0,0.12)' }}>
+      <span>{nutrition.foodName}: Calories {nutrition.calories}, Protein {nutrition.protein}g</span>
+      <button type="button" onClick={() => onDelete(String(nutrition.id))} style={{ background: '#1976d2', color: '#fff', border: 'none', borderRadius: '4px', padding: '6px 12px', cursor: 'pointer' }}>
+        Delete
+      </button>
+    </li>
   );
 };
 
